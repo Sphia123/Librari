@@ -32,7 +32,6 @@ import { useRouter } from 'vue-router'
 import initialBooks from '../data/books.js'
 
 const router = useRouter()
-
 const books = ref([...initialBooks])
 const searchQuery = ref('')
 
@@ -48,29 +47,53 @@ const goHome = () => {
 </script>
 
 <style scoped>
-html, body, #app {
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
-  overflow-x: hidden;
-}
-.catalog-page {
-  max-width: 1150px;
-  margin: 20px auto;
-  padding-left: 20px;
+html, body {
+  margin: 0;
+  padding: 0;
   width: 100vw;
   height: 100vh;
-  position: relative;
-  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#app, .catalog-page {
   box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+.catalog-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+  margin: 0;
 }
 
 .catalog-header {
   display: flex;
   align-items: center;
-  margin-bottom: 1.5rem;
   gap: 1rem;
+  margin-bottom: 1.5rem;
 }
+
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 20px;
+  overflow-y: auto;
+  height: calc(100vh - 20px*2 - 56px - 24px);
+  box-sizing: border-box;
+  margin: 4px;
+  padding: 0;
+  width: 100%;
+}
+
+
 
 .search-input {
   flex: 1;
@@ -93,7 +116,7 @@ html, body, #app {
 .home-button {
   padding: 0.5rem 1rem;
   background-color: #4a90e2;
-  color: rgb(255, 255, 255);
+  color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -101,22 +124,12 @@ html, body, #app {
   white-space: nowrap;
   transition: background-color 0.2s ease;
 }
-
 .home-button:hover {
   background-color: #357ab8;
 }
 
-.catalog {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
-  max-height: 75vh;
-  overflow-y: auto;
-  padding-right: 10px;
-}
-
 .book-card {
-  background-color: #ffffff;
+  background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   overflow: hidden;
@@ -146,11 +159,10 @@ html, body, #app {
 
 .book-card p {
   font-size: 0.9rem;
-  color: #000000;
+  color: #000;
   padding: 0 0.5rem 1rem;
 }
 
-/* Адаптивность */
 @media (max-width: 1000px) {
   .catalog {
     grid-template-columns: repeat(3, 1fr);
@@ -159,7 +171,7 @@ html, body, #app {
 
 @media (max-width: 600px) {
   .catalog {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: 1fr;
   }
 
   .catalog-header {
