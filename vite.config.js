@@ -5,7 +5,7 @@ import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
 
 export default defineConfig({
-  base: '/',
+  base: '/Librari/',
   plugins: [
     vue(),
     vueDevTools(),
@@ -15,10 +15,4 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
-  server: {
-    host: true,
-    hmr: {
-      host: 'localhost'
-    }
-  }
 })

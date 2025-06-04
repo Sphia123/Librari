@@ -20,7 +20,6 @@
       >
         <img :src="book.image" :alt="book.title" />
         <h3>{{ book.title }}</h3>
-        <p>{{ book.short }}</p>
       </router-link>
     </div>
   </div>
@@ -155,6 +154,7 @@ html, body {
   margin: 0.5rem 0;
   font-size: 1.1rem;
   color: #333;
+  line-height: 100%;
 }
 
 .book-card p {
