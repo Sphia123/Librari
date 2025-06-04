@@ -4,7 +4,7 @@ An interactive web application built with Vue 3 that allows users to browse a ca
 
 ## 🔗 Demo
 
-[View on GitHub Pages](https://sphia123.github.io/Librari/)
+[View on GitHub Pages](https://sphia123.github.io/Librari/#/catalog)
 
 ## 🚀 Features
 
